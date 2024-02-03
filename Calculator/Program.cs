@@ -73,6 +73,8 @@ class Program
 
             Console.WriteLine("\n"); //Criando um espaco
         }
+        return;
+        calculator.Finish();
     }
 }
 
