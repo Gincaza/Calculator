@@ -6,41 +6,41 @@ class Program
     {
         Calculator calculator = new Calculator();
         bool endApp = false;
-        //Titulo
-        Console.WriteLine("Calculadora de Console em C#\r");
+        // Title
+        Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------------\n");
 
         while (!endApp)
         {
-            //Declarar as variaiveis e deixar vazio
+            // Declare variables and set to empty
             string numInput1 = "";
             string numInput2 = "";
             double result = 0;
 
-            //Pergunte ao usuario pra escrever o num1
-            Console.Write("Escreva um numero e pressione Enter: ");
+            // Ask the user to type the first number
+            Console.Write("Type a number and press Enter: ");
             numInput1 = Console.ReadLine();
 
             double cleanNum1 = 0;
             while (!double.TryParse(numInput1, out cleanNum1))
             {
-                Console.Write("Insira um input valido: ");
+                Console.Write("Enter a valid input: ");
                 numInput1 = Console.ReadLine();
             }
 
-            //Pergunta ao usuario o segundo numero
-            Console.Write("Escreva um numero e pressione Enter: ");
+            // Ask the user for the second number
+            Console.Write("Type a number and press Enter: ");
             numInput2 = Console.ReadLine();
 
             double cleanNum2 = 0;
             while (!double.TryParse(numInput2, out cleanNum2))
             {
-                Console.Write("Insira um input valido: ");
+                Console.Write("Enter a valid input: ");
                 numInput2 = Console.ReadLine();
             }
 
-            //Pergunta ao usuario para escolher um operador
-            Console.WriteLine("Escolha um operador:");
+            // Ask the user to choose an operator
+            Console.WriteLine("Choose an operator:");
             Console.WriteLine("\ta - Add");
             Console.WriteLine("\ts - Subtract");
             Console.WriteLine("\tm - Multiply");
@@ -54,27 +54,25 @@ class Program
                 result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                 if (double.IsNaN(result))
                 {
-                    Console.WriteLine("Essa operacao vai causar em um erro.\n");
+                    Console.WriteLine("This operation will result in an error.\n");
                 }
                 else
                 {
-                    Console.WriteLine("Seu resultado: {0:0.##}\n", result);
+                    Console.WriteLine("Your result: {0:0.##}\n", result);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Ocorreu um problema: " + e.Message);
+                Console.WriteLine("An error occurred: " + e.Message);
             }
 
-            //Esperar pelon usuario antes de fechar
+            // Wait for the user before closing
             Console.WriteLine("----------------------------------------------------\n");
-            Console.WriteLine("Pressione n e Enter para fechar o programa.");
+            Console.WriteLine("Press 'n' and Enter to close the app.");
             if (Console.ReadLine() == "n") endApp = true;
 
-            Console.WriteLine("\n"); //Criando um espaco
+            Console.WriteLine("\n"); // Creating a space
         }
         return;
-        calculator.Finish();
     }
 }
-
